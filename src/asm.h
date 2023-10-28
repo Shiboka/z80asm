@@ -46,21 +46,21 @@
 /* ==================== */
 
 typedef struct {
-	int pass;
-	unsigned short org;
-	int bt;
-	int labn;
-	char labs[10][255];
-	short labo[10];
+    int pass;
+    unsigned short org;
+    int bt;
+    int labn;
+    char labs[10][255];
+    short labo[10];
 } prog_data_t;
 
 typedef struct {
-	char regn;
-	int regs[10];
-	short n[10];
-	char o;
-	char db[255];
-	char lab[255];
+    char regn;
+    int regs[10];
+    short n[10];
+    char o;
+    char db[255];
+    char lab[255];
 } reg_data_t;
 
 char org(prog_data_t *, reg_data_t *, char *);
