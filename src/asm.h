@@ -1,6 +1,7 @@
 #ifndef _Z80_ASM_H_
 #define _Z80_ASM_H_
 
+#include <stdint.h>
 #include "util.h"
 
 /* ==================== */
@@ -47,56 +48,56 @@
 
 typedef struct {
     int pass;
-    unsigned short org;
+    uint16_t org;
     int bt;
     int labn;
     char labs[10][255];
-    short labo[10];
+    uint16_t labo[10];
 } prog_data_t;
 
 typedef struct {
-    char regn;
+    uint8_t regn;
     int regs[10];
-    short n[10];
-    char o;
+    uint16_t n[10];
+    uint8_t o;
     char db[255];
     char lab[255];
 } reg_data_t;
 
-char org(prog_data_t *, reg_data_t *, char *);
-char db(prog_data_t *, reg_data_t *, char *);
-char call(prog_data_t *, reg_data_t *, char *);
-char bit(prog_data_t *, reg_data_t *, char *);
-char xor(prog_data_t *, reg_data_t *, char *);
-char sub(prog_data_t *, reg_data_t *, char *);
-char srl(prog_data_t *, reg_data_t *, char *);
-char sra(prog_data_t *, reg_data_t *, char *);
-char sla(prog_data_t *, reg_data_t *, char *);
-char set(prog_data_t *, reg_data_t *, char *);
-char sbc(prog_data_t *, reg_data_t *, char *);
-char rst(prog_data_t *, reg_data_t *, char *);
-char rrc(prog_data_t *, reg_data_t *, char *);
-char rr(prog_data_t *, reg_data_t *, char *);
-char rl(prog_data_t *, reg_data_t *, char *);
-char ret(prog_data_t *, reg_data_t *, char *);
-char res(prog_data_t *, reg_data_t *, char *);
-char push(prog_data_t *, reg_data_t *, char *);
-char pop(prog_data_t *, reg_data_t *, char *);
-char out(prog_data_t *, reg_data_t *, char *);
-char or(prog_data_t *, reg_data_t *, char *);
-char jr(prog_data_t *, reg_data_t *, char *);
-char inc(prog_data_t *, reg_data_t *, char *);
-char in(prog_data_t *, reg_data_t *, char *);
-char im(prog_data_t *, reg_data_t *, char *);
-char ex(prog_data_t *, reg_data_t *, char *);
-char dec(prog_data_t *, reg_data_t *, char *);
-char cp(prog_data_t *, reg_data_t *, char *);
-char and(prog_data_t *, reg_data_t *, char *);
-char add(prog_data_t *, reg_data_t *, char *);
-char adc(prog_data_t *, reg_data_t *, char *);
-char jp(prog_data_t *, reg_data_t *, char *);
-char ld(prog_data_t *, reg_data_t *, char *);
+int org(prog_data_t *, reg_data_t *, uint8_t *);
+int db(prog_data_t *, reg_data_t *, uint8_t *);
+int call(prog_data_t *, reg_data_t *, uint8_t *);
+int bit(prog_data_t *, reg_data_t *, uint8_t *);
+int xor(prog_data_t *, reg_data_t *, uint8_t *);
+int sub(prog_data_t *, reg_data_t *, uint8_t *);
+int srl(prog_data_t *, reg_data_t *, uint8_t *);
+int sra(prog_data_t *, reg_data_t *, uint8_t *);
+int sla(prog_data_t *, reg_data_t *, uint8_t *);
+int set(prog_data_t *, reg_data_t *, uint8_t *);
+int sbc(prog_data_t *, reg_data_t *, uint8_t *);
+int rst(prog_data_t *, reg_data_t *, uint8_t *);
+int rrc(prog_data_t *, reg_data_t *, uint8_t *);
+int rr(prog_data_t *, reg_data_t *, uint8_t *);
+int rl(prog_data_t *, reg_data_t *, uint8_t *);
+int ret(prog_data_t *, reg_data_t *, uint8_t *);
+int res(prog_data_t *, reg_data_t *, uint8_t *);
+int push(prog_data_t *, reg_data_t *, uint8_t *);
+int pop(prog_data_t *, reg_data_t *, uint8_t *);
+int out(prog_data_t *, reg_data_t *, uint8_t *);
+int or(prog_data_t *, reg_data_t *, uint8_t *);
+int jr(prog_data_t *, reg_data_t *, uint8_t *);
+int inc(prog_data_t *, reg_data_t *, uint8_t *);
+int in(prog_data_t *, reg_data_t *, uint8_t *);
+int im(prog_data_t *, reg_data_t *, uint8_t *);
+int ex(prog_data_t *, reg_data_t *, uint8_t *);
+int dec(prog_data_t *, reg_data_t *, uint8_t *);
+int cp(prog_data_t *, reg_data_t *, uint8_t *);
+int and(prog_data_t *, reg_data_t *, uint8_t *);
+int add(prog_data_t *, reg_data_t *, uint8_t *);
+int adc(prog_data_t *, reg_data_t *, uint8_t *);
+int jp(prog_data_t *, reg_data_t *, uint8_t *);
+int ld(prog_data_t *, reg_data_t *, uint8_t *);
 
-int parse(char *, reg_data_t *, prog_data_t *, char (**)(prog_data_t *, reg_data_t*, char *));
+int parse(char *, reg_data_t *, prog_data_t *, int (**)(prog_data_t *, reg_data_t*, uint8_t *));
 
 #endif

@@ -9,8 +9,8 @@
 /* =              PUSH, POP                   = */
 /* ============================================ */
 
-char
-push(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+push(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -40,8 +40,8 @@ push(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-pop(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+pop(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -75,8 +75,8 @@ pop(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =               INC, DEC                   = */
 /* ============================================ */
 
-char
-inc(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+inc(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -122,8 +122,8 @@ inc(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return i;
 }
 
-char
-dec(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+dec(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -174,8 +174,8 @@ dec(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =         AND, OR, XOR, CP, SUB            = */
 /* ============================================ */
 
-char
-and(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+and(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -221,8 +221,8 @@ and(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-or(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+or(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -268,8 +268,8 @@ or(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-xor(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+xor(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -315,8 +315,8 @@ xor(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-cp(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+cp(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -362,8 +362,8 @@ cp(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-sub(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+sub(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -413,8 +413,8 @@ sub(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =               ADC, SBC                   = */
 /* ============================================ */
 
-char
-adc(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+adc(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -482,8 +482,8 @@ adc(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-sbc(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+sbc(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -555,8 +555,8 @@ sbc(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =            RES, SET, BIT                 = */
 /* ============================================ */
 
-char
-res(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+res(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -599,8 +599,8 @@ res(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-set(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+set(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -643,8 +643,8 @@ set(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-bit(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+bit(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -691,8 +691,8 @@ bit(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =       RL, RR, RRC, SLA, SRA, SRL         = */
 /* ============================================ */
 
-char
-rl(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+rl(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -732,8 +732,8 @@ rl(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-rr(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+rr(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -773,8 +773,8 @@ rr(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-rrc(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+rrc(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -814,8 +814,8 @@ rrc(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-sla(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+sla(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -855,8 +855,8 @@ sla(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-sra(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+sra(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -896,8 +896,8 @@ sra(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-srl(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+srl(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -941,8 +941,8 @@ srl(prog_data_t *pd, reg_data_t *rd, char *bytes)
 /* =                 MISC                     = */
 /* ============================================ */
 
-char
-ld(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+ld(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int j, i = 0;
     int r16 = 0;
@@ -1178,7 +1178,7 @@ ld(prog_data_t *pd, reg_data_t *rd, char *bytes)
         if(j == pd->labn)
             return -1;
 
-        short n = pd->org + pd->labo[j];
+        uint16_t n = pd->org + pd->labo[j];
 
         bytes[i] = n;
         i++;
@@ -1189,8 +1189,8 @@ ld(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return i;
 }
 
-char
-jp(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+jp(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -1254,7 +1254,7 @@ jp(prog_data_t *pd, reg_data_t *rd, char *bytes)
         if(i == pd->labn)
             return -1;
 
-        short n = pd->org + pd->labo[i];
+        uint16_t n = pd->org + pd->labo[i];
 
         bytes[1] = n;
         bytes[2] = n >> 8;
@@ -1266,8 +1266,8 @@ jp(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return 3;
 }
 
-char
-jr(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+jr(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i;
 
@@ -1314,8 +1314,8 @@ jr(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return 2;
 }
 
-char
-add(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+add(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -1380,8 +1380,8 @@ add(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-call(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+call(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i;
 
@@ -1432,7 +1432,7 @@ call(prog_data_t *pd, reg_data_t *rd, char *bytes)
         if(i == pd->labn)
             return -1;
 
-        short n = pd->org + pd->labo[i];
+        uint16_t n = pd->org + pd->labo[i];
 
         bytes[1] = n;
         bytes[2] = n >> 8;
@@ -1444,8 +1444,8 @@ call(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return 3;
 }
 
-char
-ret(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+ret(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(!rd->regs[0]) {
         bytes[0] = 0xc9;
@@ -1471,8 +1471,8 @@ ret(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-rst(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+rst(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(rd->regs[0] != N)
         return -1;
@@ -1507,8 +1507,8 @@ rst(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-ex(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+ex(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i = 0;
 
@@ -1532,8 +1532,8 @@ ex(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return i+1;
 }
 
-char
-im(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+im(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(rd->regs[0] != N)
         return -1;
@@ -1555,8 +1555,8 @@ im(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-in(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+in(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(rd->regs[0] == A && rd->regs[1] == (N|PTR)) {
         bytes[0] = 0xdb;
@@ -1584,8 +1584,8 @@ in(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-out(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+out(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(rd->regs[0] == (N|PTR) && rd->regs[1] == A) {
         bytes[0] = 0xd3;
@@ -1625,8 +1625,8 @@ out(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return -1;
 }
 
-char
-org(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+org(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     if(rd->regs[0] != N || rd->regs[1])
         return -1;
@@ -1635,8 +1635,8 @@ org(prog_data_t *pd, reg_data_t *rd, char *bytes)
     return 0;
 }
 
-char
-db(prog_data_t *pd, reg_data_t *rd, char *bytes)
+int
+db(prog_data_t *pd, reg_data_t *rd, uint8_t *bytes)
 {
     int i, j, k, l;
 
@@ -1660,10 +1660,9 @@ db(prog_data_t *pd, reg_data_t *rd, char *bytes)
 
 
 int
-parse(char *line, reg_data_t *rd, prog_data_t *pd, char (**instr)(prog_data_t *, reg_data_t *, char *))
+parse(char *line, reg_data_t *rd, prog_data_t *pd, int (**instr)(prog_data_t *, reg_data_t *, uint8_t *))
 {
     char *pch[10];
-    short n;
 
     /* =================================== */
 

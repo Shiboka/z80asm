@@ -12,11 +12,11 @@
 int
 asm_line(char *line)
 {
-    char (*instr)(prog_data_t *, reg_data_t *, char *);
+    int (*instr)(prog_data_t *, reg_data_t *, uint8_t *);
     reg_data_t rd;
     prog_data_t pd;
-    char bytes[255];
-    char b_len;
+    uint8_t bytes[255];
+    int b_len;
     int ret;
 
     pd.pass = 2;
@@ -27,7 +27,7 @@ asm_line(char *line)
     to_upper(line);
     ret = parse(line, &rd, &pd, &instr);
     
-    if(!instr) {
+    if(ret == -1) {
         fprintf(stderr, "Invalid instruction1.\n");
         return 1;
     }
@@ -52,11 +52,11 @@ asm_file(char *file)
     // Variable declarations
     FILE *fpi, *fpo;
     char c, line[255], linecp[255], *linep;
-    char (*instr)(prog_data_t *, reg_data_t *, char *);
+    int (*instr)(prog_data_t *, reg_data_t *, uint8_t *);
     prog_data_t *pd;
     reg_data_t *rd;
-    char bytes[255];
-    char b_len;
+    uint8_t bytes[255];
+    int b_len;
     int ret, i = 0;
     int linen = 0;
 
@@ -103,7 +103,7 @@ asm_file(char *file)
         b_len = instr(pd, rd, bytes);
 
         if(b_len == -1) {
-            fprintf(stderr, "Invalid instructionon line %d.\n", linen);
+            fprintf(stderr, "Invalid instruction on line %d.\n", linen);
             fprintf(stderr, "\"%s\"\n", linep);
             return 1;
         }
@@ -120,7 +120,7 @@ asm_file(char *file)
         return 1;
     }
 
-    if(!(fpo = fopen("out.bin", "w"))) {
+    if(!(fpo = fopen("out.bin", "w+"))) {
         fprintf(stderr, "Couldn't open file.\n");
         return 1;
     }
