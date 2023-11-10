@@ -9,7 +9,7 @@ obj/%.o: src/%.c $(DEPS)
 
 all: $(OBJ)
 	mkdir -p bin
-	$(CC) -o bin/z80asm $(OBJ)
+	$(CC) -o bin/z80asm $(OBJ) -lm
 
 clean:
 	rm -f obj/*.o bin/*

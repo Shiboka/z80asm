@@ -72,6 +72,7 @@ asm_file(char *file)
     }
 
     // Start pass 1
+    printf("pass 1\n");
     pd->bt = 0;
     pd->pass = 1;
     while((c = fgetc(fpi)) != EOF) {
@@ -90,7 +91,7 @@ asm_file(char *file)
         ret = parse(line, rd, pd, &instr);
 
         if(ret == -1) {
-            fprintf(stderr, "Invalid instruction on line %d.\n", linen);
+            fprintf(stderr, "Couldn't parse instruction on line %d.\n", linen);
             fprintf(stderr, "\"%s\"\n", linep);
             return 1;
         }
@@ -120,12 +121,13 @@ asm_file(char *file)
         return 1;
     }
 
-    if(!(fpo = fopen("out.bin", "w+"))) {
+    if(!(fpo = fopen("out.bin", "w"))) {
         fprintf(stderr, "Couldn't open file.\n");
         return 1;
     }
 
     // Start pass 2
+    printf("pass 2\n");
     pd->bt = 0;
     pd->pass = 2;
     while((c = fgetc(fpi)) != EOF) {
@@ -140,12 +142,24 @@ asm_file(char *file)
         to_upper(line);
         ret = parse(line, rd, pd, &instr);
 
+        if(ret == -1) {
+            fprintf(stderr, "Couldn't parse instruction on line %d.\n", linen);
+            fprintf(stderr, "\"%s\"\n", linep);
+            return 1;
+        }
+
         if(ret == 0) {
             line[0] = i = 0;
             continue;
         }
 
         b_len = instr(pd, rd, bytes);
+        
+        if(b_len == -1) {
+            fprintf(stderr, "Invalid instruction on line %d.\n", linen);
+            fprintf(stderr, "\"%s\"\n", linep);
+            return 1;
+        }
 
         fwrite(bytes, 1, b_len, fpo);
         pd->bt += b_len;
