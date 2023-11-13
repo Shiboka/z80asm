@@ -27,4 +27,4 @@ PrintChar:
     pop hl
     ret
 
-Message: db "Hello World 323!",255
+Message: db "Hello World!",255

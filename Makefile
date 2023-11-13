@@ -12,4 +12,4 @@ all: $(OBJ)
 	$(CC) -o bin/z80asm $(OBJ) -lm
 
 clean:
-	rm -f obj/*.o bin/*
+	rm -f obj/*.o bin/z80asm*
