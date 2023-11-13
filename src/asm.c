@@ -1708,7 +1708,7 @@ parse(char *line, reg_data_t *rd, prog_data_t *pd, int (**instr)(prog_data_t *, 
             return 0;
     }
 
-    printf("instr: %s\n", pch[1]);
+    //printf("instr: %s\n", pch[1]);
     // get the instruction
     if(!strcmp(pch[1], "LD")) {
         *instr = &ld;

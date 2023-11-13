@@ -72,7 +72,6 @@ asm_file(char *file)
     }
 
     // Start pass 1
-    printf("pass 1\n");
     pd->bt = 0;
     pd->pass = 1;
     while((c = fgetc(fpi)) != EOF) {
@@ -127,7 +126,6 @@ asm_file(char *file)
     }
 
     // Start pass 2
-    printf("pass 2\n");
     pd->bt = 0;
     pd->pass = 2;
     while((c = fgetc(fpi)) != EOF) {
